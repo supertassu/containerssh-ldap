@@ -1,0 +1,12 @@
+LDAP:
+  SERVERS:
+    - ldap-01.corp.example.org
+    - ldap-02.corp.example.org
+    - ldap-03.corp.example.org
+  USE_STARTTLS: true
+  BIND_USERNAME: cn=readonly,dc=corp,dc=example,dc=org
+  BIND_PASSWORD: password
+
+  USERNAME_DN: uid=%s,ou=people,dc=corp,dc=example,dc=org
+  FILTER: '(&(objectClass=ldapPublicKey)((!(pwdPolicySubentry=cn=disabled,ou=pwpolicies,dc=corp,dc=example,dc=org))))'
+  ATTRIBUTE: sshPublicKey
